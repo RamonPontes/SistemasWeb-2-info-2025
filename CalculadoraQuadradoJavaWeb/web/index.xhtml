@@ -7,11 +7,11 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:outputLabel value="Digite seu nome" />
-            <h:inputText value="#{meuBean.hello.nome}" />
-            <h:commandButton value="Olá" action="#{meuBean.ola}" />
-            <br />
-            <h:outputLabel value="#{meuBean.msg}" />
+            <h:outputLabel value="Digite o lado do quadrado: " />
+            <h:inputText value="#{quadradoBean.lado}" />
+            <h:commandButton value="Calcular" action="#{quadradoBean.calcular}" />
+
+            <h:outputLabel value="#{quadradoBean.resultado}" />
         </h:form>
     </h:body>
 </html>
