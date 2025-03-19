@@ -12,8 +12,7 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 public class QuadradoBean {
-    private float lado;
-    private float resultado;
+    private float lado, resultado;
     
     public void calcular() {
         resultado = lado * lado;
