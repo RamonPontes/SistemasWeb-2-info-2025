@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Computador</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:commandButton id="bNovo" icon="pi pi-file-o" ajax="false" action="#{computadorBean.novo}" />
+            <p:tooltip id="ttNovo" for="bNovo" value="Novo computador" trackMouse="true" />
+            <p:commandButton id="bAtualiza" icon="pi pi-refresh" action="#{computadorBean.atualizaLista}" update="tabela" />
+            <p:tooltip id="ttAtualiza" for="bAtualiza" value="Atualiza lista" trackMouse="true" />
+            <p:dataTable id="tabela" value="#{computadorBean.lista}" var="computador">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Id" />
+                    </f:facet>
+                    <h:outputText value="#{computador.id}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText value="#{computador.nome}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Localizacao" />
+                    </f:facet>
+                    <h:outputText value="#{computador.localizacao}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Endereco IP" />
+                    </f:facet>
+                    <h:outputText value="#{computador.enderecoip}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Configuracao" />
+                    </f:facet>
+                    <h:outputText value="#{computador.configuracao}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ações" />
+                    </f:facet>
+                    
+                    <p:commandButton id="bEdita" icon="pi pi-pencil" ajax="false" action="#{computadorBean.edita}" />
+                    <p:tooltip for="bEdita" value="Alterar Computador" trackMouse="true" />
+                    
+                    <p:commandButton id="bExclui" icon="pi pi-trash" update="tabela" action="#{computadorBean.exclui}" >
+                        <p:confirm header="Confirmação" message="Confirma exclusão de #{computador.nome}?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                    
+                    <p:confirmDialog global="true" closable="false" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                    </p:confirmDialog>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

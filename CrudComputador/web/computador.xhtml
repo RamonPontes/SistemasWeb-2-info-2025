@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Computador</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputLabel for="itId" value="Id"/>
+            <p:inputText id="itId" value="#{computadorBean.computador.id}"/><br/>
+            
+            <p:outputLabel for="itNome" value="Nome"/>
+            <p:inputText id="itNome" value="#{computadorBean.computador.nome}"/><br/>
+            
+            <p:outputLabel for="itLocalizacao" value="Localizacao"/>
+            <p:inputText id="itLocalizacao" value="#{computadorBean.computador.localizacao}"/><br/>
+            
+            <p:outputLabel for="itEnderecoip" value="Endereco IP"/>
+            <p:inputText id="itEnderecoip" value="#{computadorBean.computador.enderecoip}"/><br/>
+            
+            <p:outputLabel for="itConfiguracao" value="Configuracao"/>
+            <p:inputText id="itConfiguracao" value="#{computadorBean.computador.configuracao}"/><br/>
+            
+            <p:commandButton icon="pi pi-save" ajax="false" action="#{computadorBean.salva()}" />
+        </h:form>
+        <h:form>
+            <p:commandButton icon="pi pi-arrow-left" action="index"/>
+        </h:form>
+    </h:body>
+</html>
