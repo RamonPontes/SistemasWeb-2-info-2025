@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Livros</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputLabel value="Id"/>
+            <p:inputText value="#{livroBean.livro.id}" readonly="true"/><br/>
+            <p:outputLabel value="Título"/>
+            <p:inputText value="#{livroBean.livro.titulo}"/><br/>
+            <p:outputLabel value="Autor"/>
+            <p:inputText value="#{livroBean.livro.autor}"/><br/>
+            <p:outputLabel value="Gênero"/>
+            <p:selectOneMenu value="#{livroBean.livro.genero}">
+                <f:selectItem itemLabel="Suspense" itemValue="Suspense"/>
+                <f:selectItem itemLabel="Romance" itemValue="Romance"/>
+                <f:selectItem itemLabel="Comédia" itemValue="Comédia"/>
+                <f:selectItem itemLabel="Ficção" itemValue="Ficção"/>
+                <f:selectItem itemLabel="Infantil" itemValue="Infantil"/>
+                <f:selectItem itemLabel="Técnico" itemValue="Técnico"/>
+            </p:selectOneMenu><br/>
+            <p:outputLabel value="Ano"/>
+            <p:inputNumber value="#{livroBean.livro.ano}" decimalPlaces="0" minValue="1900" maxValue="2100"/><br/>
+            <p:commandButton icon="pi pi-save" action="#{livroBean.salva()}" ajax="false"/>
+        </h:form>
+        <h:form>
+            <p:commandButton icon="pi pi-arrow-left" action="#{livroBean.cancela()}" ajax="false"/>
+        </h:form>
+    </h:body>
+</html>

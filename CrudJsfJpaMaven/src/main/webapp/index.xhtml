@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:commandButton icon="pi pi-file-o" styleClass="ui-button-help"
+                             action="#{livroBean.novo()}" ajax="false"/><br/>
+            <p:outputLabel value="Busca:"/>
+            <p:inputText value="#{livroBean.parcial}"/>
+            <p:commandButton icon="pi pi-refresh" styleClass="ui-button-success"
+                             action="#{livroBean.atualizaDataModel()}" update="tabela"/>
+            <p:dataTable id="tabela" value="#{livroBean.listaLivro}" var="livro">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Id"/>
+                    </f:facet>
+                    <p:outputLabel value="#{livro.id}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Título"/>
+                    </f:facet>
+                    <p:outputLabel value="#{livro.titulo}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Autor"/>
+                    </f:facet>
+                    <p:outputLabel value="#{livro.autor}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ações"/>
+                    </f:facet>
+                    <p:commandButton icon="pi pi-pencil" 
+                                     action="#{livroBean.edita()}" ajax="false"/>
+                    <p:commandButton icon="pi pi-trash" styleClass="ui-button-danger"
+                                     action="#{livroBean.exclui()}" update="tabela">
+                        <p:confirm header="Confirmação"
+                                   message="Tem certeza que deseja excluir #{livro.titulo}?"
+                                   icon="ui-icon-alert" />
+                    </p:commandButton>
+                    <p:confirmDialog global="true" closable="false" showEffect="fade"
+                                     hideEffect="fade">
+                        <p:commandButton value="Sim" type="button"
+                                         styleClass="ui-confirmdialog-yes ui-button-success"
+                                         icon="pi pi-check" />
+                        <p:commandButton value="Não" type="button"
+                                         styleClass="ui-confirmdialog-no ui-button-danger"
+                                         icon="pi pi-times" />
+                    </p:confirmDialog>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
