@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Cadastro de Animal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</h:head>
+<h:body>
+    <h:form>
+        <p:outputLabel value="Id" />
+        <p:inputText value="#{animalBean.animal.id}" readonly="true" /><br />
+        <p:outputLabel value="Nome" />
+        <p:inputText value="#{animalBean.animal.nome}" /><br />
+        <p:outputLabel value="Especie" />
+        <p:inputText value="#{animalBean.animal.especie}" /><br />
+        <p:outputLabel value="Idade" />
+        <p:inputNumber value="#{animalBean.animal.idade}" decimalPlaces="0" /><br />
+        <p:commandButton icon="pi pi-save" action="#{animalBean.salva()}" ajax="false" />
+    </h:form>
+    <h:form>
+        <p:commandButton icon="pi pi-arrow-left" action="#{animalBean.cancela()}" ajax="false" />
+    </h:form>
+</h:body>
+
+</html>
