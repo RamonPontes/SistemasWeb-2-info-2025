@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Cadastro de Produto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</h:head>
+<h:body>
+    <h:form>
+        <p:outputLabel value="ID"/>
+        <p:inputText value="#{produtoBean.produto.id}" readonly="true"/><br/>
+
+        <p:outputLabel value="Descrição"/>
+        <p:inputText value="#{produtoBean.produto.descricao}"/><br/>
+
+        <p:outputLabel value="Quantidade"/>
+        <p:inputNumber value="#{produtoBean.produto.quantidade}" decimalPlaces="0"/><br/>
+
+        <p:outputLabel value="Marca"/>
+        <p:inputText value="#{produtoBean.produto.marca}"/><br/>
+
+        <p:commandButton icon="pi pi-save" action="#{produtoBean.salva()}" ajax="false"/>
+    </h:form>
+
+    <h:form>
+        <p:commandButton icon="pi pi-arrow-left" action="#{produtoBean.cancela()}" ajax="false"/>
+    </h:form>
+</h:body>
+</html>
